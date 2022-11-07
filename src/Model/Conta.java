@@ -43,9 +43,9 @@ public class Conta {
     public String sacar(double valor){
         if(valor < saldo){
          saldo = saldo - valor;
-         return "Saque realizado";
+         return "Saque de " + valor + " realizado com sucesso!";
         } else {
-            return "Saldo insufficiente";
+            return "Saldo insuficiente, realize um depósito.";
         }
     }
 

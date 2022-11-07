@@ -9,6 +9,7 @@ public class Main {
 
         int opcao;
         int opcaoConta;
+        double valorSaqueDeposito;
 
         ContaPoupanca contaPoupanca = null;
         ContaInvestimento contaInvestimento = null;
@@ -22,7 +23,7 @@ public class Main {
             opcao = scanner.nextInt();
 
             if(opcao == 1){
-                System.out.println("Qual tipo de Conta?\n1.Poupancazn2.Investimento");
+                System.out.println("Qual tipo de Conta?\n1.Poupança 2.Investimento");
                 opcaoConta = scanner.nextInt();
 
                 if(opcaoConta == 1){
@@ -34,18 +35,42 @@ public class Main {
 
                 System.out.println("Conta Criada com sucesso");
             } else if(opcao == 2){
+                System.out.println("Deseja sacar de qual conta?\n1.Poupança 2.Investimento");
+                opcaoConta = scanner.nextInt();
+
+                System.out.println("Deseja sacar qual quantia?");
+                valorSaqueDeposito = scanner.nextDouble();
+
+                if(opcaoConta == 1){
+                    System.out.println(contaPoupanca.sacar(valorSaqueDeposito));
+
+                } else {
+                    System.out.println(contaInvestimento.sacar(valorSaqueDeposito));
+                }
 
             } else if(opcao == 3){
+                System.out.println("Deseja depositar em qual conta?\n1.Poupança 2.Investimento");
+                opcaoConta = scanner.nextInt();
+
+                System.out.println("Deseja depositar qual quantia?");
+                valorSaqueDeposito = scanner.nextDouble();
+
+                if(opcaoConta == 1){
+                    System.out.println("Depósito realizado com sucesso na conta poupança!" + "\nSeu saldo agora é de " + contaPoupanca.depositar(valorSaqueDeposito));
+
+                } else {
+                    System.out.println("Depósito realizado com sucesso na conta investimento!" + "\nSeu saldo agora é de " + contaPoupanca.depositar(valorSaqueDeposito));
+                }
 
             } else if(opcao == 4){
-                System.out.println("Qual tipo de Conta?\n1.Poupancazn2.Investimento");
+                System.out.println("Qual tipo de Conta?\n1.Poupança 2.Investimento");
                 opcaoConta = scanner.nextInt();
 
                 if(opcaoConta == 1){
                     System.out.println("Saldo da sua Conta Poupança é:" + contaPoupanca.getSaldo());
 
                 } else {
-                    System.out.println("Saldo da sua Conta Poupança é:" + contaInvestimento.getSaldo());
+                    System.out.println("Saldo da sua Conta Investimento é:" + contaInvestimento.getSaldo());
                 }
 
             }
